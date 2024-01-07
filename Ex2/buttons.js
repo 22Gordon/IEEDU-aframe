@@ -21,3 +21,12 @@ const COLORS = [
       }    
     }
   });
+  
+  // Add the following component to handle the "Start" button action
+  AFRAME.registerComponent('start-button', {
+    init: function () {
+      this.el.addEventListener('click', () => {
+        window.location.href = 'museum.html';  // Redirect to the museum scene
+      });
+    }
+  });
