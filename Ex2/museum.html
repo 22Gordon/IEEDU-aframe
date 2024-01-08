@@ -22,24 +22,11 @@
         cursor-listener
         visible="false"
       ></a-entity>
+
+      <!-- Add the wasd-controls component to enable movement -->
+      <a-entity id="player" camera look-controls wasd-controls position="0 1.6 0"></a-entity>
     </a-scene>
 
-    <script>
-        AFRAME.registerComponent('cursor-listener', {
-          init: function () {
-            var el = this.el;
-            el.addEventListener('click', function () {
-              // Handle the back button click
-              var menu = document.getElementById('menu');
-              var museum = document.getElementById('museum');
-      
-              if (menu && museum) {
-                menu.setAttribute('visible', true);
-                museum.setAttribute('visible', false);
-              }
-            });
-          },
-        });
-      </script>
+    <script src="movement.js"></script>
   </body>
 </html>

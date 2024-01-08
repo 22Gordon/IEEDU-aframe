@@ -58,13 +58,13 @@
         <!-- Main menu. -->
         <a-mixin id="buttonMain" mixin="button" bind-toggle__raycastable="menu === 'main'"></a-mixin>
         <a-entity id="mainMenu" bind__visible="menu === 'main'">
-          <a-entity id="title" text="value: Super Menu; color: #FAFAFA; width: 4; align: center" position="0 1.2 0.01" render-order="menuItem"></a-entity>
+          <a-entity id="title" text="value: Virtual Museum; color: #FAFAFA; width: 4; align: center" position="0 1.2 0.01" render-order="menuItem"></a-entity>
           <a-entity id="logo" geometry="primitive: plane; width: 0.7; height: 0.7" material="src: #logoImg; transparent: true; shader: flat" position="0 0.65 0.02" render-order="menuitem"></a-entity>
 
           <a-entity class="buttons" layout="type: box; columns: 1; marginRow: -0.5" position="0 0 0.02">
             <a-entity mixin="buttonMain" text="value: Set Environment; color: #F85333" proxy-event="as: menuEnvironment"></a-entity>
             <a-entity mixin="buttonMain" text="value: Randomize; color: #48BAEA" proxy-event="as: environmentRandomize"></a-entity>
-            <a-entity mixin="buttonMain" text="value: Start; color: #e0cb49"></a-entity>
+            <a-entity mixin="buttonMain start-button" text="value: Start; color: #e0cb49"></a-entity>
           </a-entity>
         </a-entity>
         
