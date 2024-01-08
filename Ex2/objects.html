@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<htlm>
+<head>
+    <title>Experience</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+
+        <a-assets>
+            <img id="background" src="../assets/mine_grass.webp">
+            <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-sky src="#background"></a-sky>
+
+        <a-entity position="0 50 100">
+            <a-camera></a-camera>
+        </a-entity>
+
+        <a-entity gltf-model="#monalisa" scale="0.75 0.75 0.75"></a-entity>
+    </a-scene>
+</body>
+</htlm>
