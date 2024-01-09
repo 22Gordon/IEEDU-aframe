@@ -2,33 +2,62 @@
   <head>
     <title>Virtual Museum | A-Frame</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe-extras.min.js"></script>
     <script src="objectClick.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- Your museum entities go here -->
-      <a-camera look-controls-enabled="true" wasd-controls position="0 1.6 0">
+      <a-camera look-controls-enabled="true" wasd-controls position="3.7 0.4 1.5" near="0.1" clickable-listener raycaster="objects: [clickable]" collision-check>
         <a-cursor color="#f49e42"></a-cursor>
-        <a-entity raycaster="objects: [clickable]"></a-entity>
       </a-camera>
+            
+      <!-- Floor -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#555" material="src: img/tiles.jpg"></a-plane>
 
-      <!-- Green plane -->
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="10" height="10" color="#00FF00" clickable="info: Green Plane"></a-plane>
+      <!-- Walls -->
+      <a-box id="wall1" position="-2.5 1 0" width="0.5" height="2" depth="5" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
+      <a-box id="wall2" position="2.5 1 -0.825" width="0.5" height="2" depth="5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall3" position="0 1 2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall4" position="0 1 -2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall5" position="2.66 1.7 0.274" width="0.2" height="1" depth="7" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
 
-      <!-- Red box -->
-      <a-box position="-2 1.5 -4" rotation="0 45 0" color="#FF0000" clickable="info: Red Box"></a-box>
+      <!-- Museum Ceiling -->
+      <a-plane position="0 2 0" rotation="90 0 0" width="5.2" height="5" color="#aaa" material="src: img/roofpainting.jpg"></a-plane>
 
-      <!-- Blue box -->
-      <a-box position="2 1.5 -4" rotation="0 -45 0" color="#0000FF" clickable="info: Blue Box"></a-box>
+      <!-- Room 1 -->
+      <a-box position="-1.5 1 1.5" width="2" height="2" depth="2" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
+
+      <!-- Room 2 -->
+      <a-box position="1.5 1 -1.5" width="2" height="2" depth="2" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
+
+      <!-- Exhibits (placeholders) -->
+      <a-box position="-1.5 0.75 -1.5" width="1" height="1.5" depth="0.5" color="#996633" clickable="info: Exhibit 1"></a-box>
+
+      <!-- Entrance Ceiling -->
+      <a-plane position="3.60 1.2 1.5" rotation="90 0 0" width="1.7" height="2" color="#aaa" material="src: img/roofpainting.jpg"></a-plane>
+
+      <!-- Entrance Door -->
+      <a-plane id="entranceDoor" position="3.393 0.25 0.25" rotation="0 90 0" width="0.3" height="0.75" color="#664422" clickable></a-plane>
+
+      <!-- Entrance Walls -->
+      <a-box position="4.45 0.5 1.389" width="0.25" height="1.5" depth="2" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
+      <a-box position="3.5 0.5 0.5" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
+
+      <a-box position="2.785 0.5 0.680" width="0.25" height="1.5" depth="2" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
+      <a-box position="3.452 0.5 2.378" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
 
       <!-- Info cards -->
-      <a-plane id="infoCard" position="0 1.6 -3" rotation="0 0 0" width="2" height="1" color="#333" visible="false">
-        <a-text id="infoText" value="" color="#FFF" ></a-text>
-        
+      <a-plane id="infoCard" position="0 1 -1.5" rotation="0 0 0" width="1" height="0.5" color="#333" visible="false">
+        <a-text id="infoText" value="" color="#FFF"></a-text>
+
         <!-- Close button -->
-        <a-plane id="closeButton" position="0 -0.5 0.01" width="0.5" height="0.2" color="#555" clickable></a-plane>
-        <a-text value="Close" color="#FFF" align="center" position="0 -0.5 0.02"></a-text>
+        <a-plane id="closeButton" position="0 -0.25 0.01" width="0.25" height="0.1" color="#555" clickable></a-plane>
+        <a-text value="Close" color="#FFF" align="center" position="0 -0.25 0.02"></a-text>
       </a-plane>
+      
+      <!-- Event listeners -->
+      <a-entity id="event-listeners" scene-listener></a-entity>
     </a-scene>
   </body>
 </html>
