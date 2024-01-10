@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Virtual Museum | A-Frame</title>
@@ -11,6 +12,11 @@
       <a-camera look-controls-enabled="true" wasd-controls position="3.7 0.4 1.5" near="0.1" clickable-listener raycaster="objects: [clickable]" collision-check>
         <a-cursor color="#f49e42"></a-cursor>
       </a-camera>
+
+      <a-assets>
+        <!-- Preload Monalisa model -->
+        <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
+      </a-assets>
             
       <!-- Floor -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#555" material="src: img/tiles.jpg"></a-plane>
@@ -34,6 +40,10 @@
       <!-- Exhibits (placeholders) -->
       <a-box position="-1.5 0.75 -1.5" width="1" height="1.5" depth="0.5" color="#996633" clickable="info: Exhibit 1"></a-box>
 
+      <a-entity position="0 0 0" clickable="info: Monalisa">
+        <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
+      </a-entity>
+
       <!-- Entrance Ceiling -->
       <a-plane position="3.60 1.2 1.5" rotation="90 0 0" width="1.7" height="2" color="#aaa" material="src: img/roofpainting.jpg"></a-plane>
 
@@ -48,7 +58,7 @@
       <a-box position="3.452 0.5 2.378" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
 
       <!-- Info cards -->
-      <a-plane id="infoCard" position="0 1 -1.5" rotation="0 0 0" width="1" height="0.5" color="#333" visible="false">
+      <a-plane id="infoCard" rotation="0 0 0" width="1" height="0.5" color="#333" visible="false">
         <a-text id="infoText" value="" color="#FFF"></a-text>
 
         <!-- Close button -->

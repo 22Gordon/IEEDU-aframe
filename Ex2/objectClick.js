@@ -1,33 +1,52 @@
 AFRAME.registerComponent('clickable', {
-    schema: {
-      info: { default: '' },
-    },
-    init: function () {
-      var el = this.el;
-      var infoCard = document.getElementById('infoCard');
-      var infoText = document.getElementById('infoText');
-      var closeButton = document.getElementById('closeButton');
+  schema: {
+    info: { default: '' },
+  },
+  init: function () {
+    var el = this.el;
+    var infoCard = document.getElementById('infoCard');
+    var infoText = document.getElementById('infoText');
+    var closeButton = document.getElementById('closeButton');
 
-      el.addEventListener('mouseenter', function () {
-        el.setAttribute('material', 'color', '#FF5555');
-      });
+    console.log('Clickable component initialized for', el);
 
-      el.addEventListener('mouseleave', function () {
-        el.setAttribute('material', 'color', el.getAttribute('color'));
-      });
+    el.addEventListener('mouseenter', function () {
+      console.log('Mouse entered', el);
+      el.setAttribute('material', 'color', '#FF5555');
+    });
 
-      el.addEventListener('click', function () {
-        if (el.getAttribute('clickable').info) {
-          infoText.setAttribute('value', el.getAttribute('clickable').info);
-          infoCard.setAttribute('visible', true);
-        }
-      });
+    el.addEventListener('mouseleave', function () {
+      console.log('Mouse left', el);
+      el.setAttribute('material', 'color', el.getAttribute('color'));
+    });
 
-      closeButton.addEventListener('click', function () {
-        infoCard.setAttribute('visible', false);
-      });
-    },
-  });
+    el.addEventListener('click', function () {
+      console.log('Clicked', el);
+      if (el.getAttribute('clickable').info) {
+        console.log('Info attribute:', el.getAttribute('clickable').info);
+
+        infoText.setAttribute('value', el.getAttribute('clickable').info);
+
+        // Set the position attribute of infoCard based on the clicked object's world position
+        var position = el.object3D.position.clone();
+        console.log('Clicked object position:', position);
+        infoCard.setAttribute('position', position);
+        infoCard.object3D.position.y += 1; 
+        
+
+        console.log('InfoCard position after adjustment:', infoCard.getAttribute('position'));
+
+        infoCard.setAttribute('visible', true);
+      }
+    });
+
+    closeButton.addEventListener('click', function () {
+      console.log('Close button clicked');
+      infoCard.setAttribute('visible', false);
+    });
+  },
+});
+
 
   AFRAME.registerComponent('scene-listener', {
     init: function () {
