@@ -16,6 +16,7 @@
       <a-assets>
         <!-- Preload Monalisa model -->
         <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
+        <a-asset-item id="estrela" src="../assets/sceneEstrela.gltf"></a-asset-item>
       </a-assets>
             
       <!-- Floor -->
@@ -40,8 +41,13 @@
       <!-- Exhibits (placeholders) -->
       <a-box position="-1.5 0.75 -1.5" width="1" height="1.5" depth="0.5" color="#996633" clickable="info: Exhibit 1"></a-box>
 
-      <a-entity position="0 0 0" clickable="info: Monalisa">
+      
+      <a-entity position="1.453 0.378 -0.316" clickable="info: Monalisa">
         <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
+      </a-entity>
+
+      <a-entity position="-0.45 0.750 1.5" rotation="0 90 0" clickable="info: The Starry Night">
+        <a-entity gltf-model="#estrela" scale="0.75 0.75 0.75"></a-entity>
       </a-entity>
 
       <!-- Entrance Ceiling -->
@@ -58,12 +64,12 @@
       <a-box position="3.452 0.5 2.378" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
 
       <!-- Info cards -->
-      <a-plane id="infoCard" rotation="0 0 0" width="1" height="0.5" color="#333" visible="false">
-        <a-text id="infoText" value="" color="#FFF"></a-text>
+      <a-plane id="infoCard" rotation="0 0 0" width="1" height="2" color="#333" opacity="0.8" transparent="true" visible="false">
+        <a-text id="infoText" position="-0.4 0.5 0" value="" color="#FFF" baseline="top" width="0.9"></a-text>
 
         <!-- Close button -->
         <a-plane id="closeButton" position="0 -0.25 0.01" width="0.25" height="0.1" color="#555" clickable></a-plane>
-        <a-text value="Close" color="#FFF" align="center" position="0 -0.25 0.02"></a-text>
+        <a-text value="Close" color="#FFF" position="0 -0.25 0.02"></a-text>
       </a-plane>
       
       <!-- Event listeners -->

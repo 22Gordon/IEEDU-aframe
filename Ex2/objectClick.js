@@ -27,7 +27,7 @@ AFRAME.registerComponent('clickable', {
 
         infoText.setAttribute('value', el.getAttribute('clickable').info);
 
-        // Set the position attribute of infoCard based on the clicked object's world position
+        // Set the position attribute of infoCard based on the clicked object world position
         var position = el.object3D.position.clone();
         console.log('Clicked object position:', position);
         infoCard.setAttribute('position', position);
