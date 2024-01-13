@@ -24,21 +24,33 @@ AFRAME.registerComponent('clickable', {
       console.log('Clicked', el);
       if (el.getAttribute('clickable').info) {
         console.log('Info attribute:', el.getAttribute('clickable').info);
-
+    
         infoText.setAttribute('value', el.getAttribute('clickable').info);
-
+    
         // Set the position attribute of infoCard based on the clicked object world position
         var position = el.object3D.position.clone();
-        console.log('Clicked object position:', position);
+    
+        // Adjust position based on the specific model
+        if (el.id === 'estrela') {
+          position.x += 0.3;
+        }
+        if (el.id === 'monalisa') {
+          position.y += 1; 
+        }
         infoCard.setAttribute('position', position);
-        infoCard.object3D.position.y += 1; 
-        
-
-        console.log('InfoCard position after adjustment:', infoCard.getAttribute('position'));
-
-        infoCard.setAttribute('visible', true);
+    
+        // Set the rotation of infoCard to match the clicked object's rotation
+        infoCard.object3D.rotation.copy(el.object3D.rotation);
+    
+        // Calculate the distance between the camera and the clicked object
+        var camera = document.querySelector('[camera]').object3D;
+        var distance = camera.position.distanceTo(el.object3D.position);
+    
+        // Adjust the visibility based on distance
+        var visibilityThreshold = 10;
+        infoCard.setAttribute('visible', distance < visibilityThreshold);
       }
-    });
+    });    
 
     closeButton.addEventListener('click', function () {
       console.log('Close button clicked');
@@ -46,18 +58,3 @@ AFRAME.registerComponent('clickable', {
     });
   },
 });
-
-
-  AFRAME.registerComponent('scene-listener', {
-    init: function () {
-      var scene = this.el;
-
-      scene.addEventListener('click', function (event) {
-        var infoCard = document.getElementById('infoCard');
-
-        if (infoCard.getAttribute('visible')) {
-          infoCard.setAttribute('visible', false);
-        }
-      });
-    },
-  });
