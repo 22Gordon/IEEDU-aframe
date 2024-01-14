@@ -1,24 +1,20 @@
-var avatar = document.getElementById('avatar');
-var camera = avatar.querySelector('a-camera');
-var speed = 0.05; // Adjust the speed as needed
+AFRAME.registerComponent('collision-handler', {
+  init: function () {
+    const camera = this.el;
 
-document.addEventListener('keydown', function (event) {
-  var position = avatar.getAttribute('position');
+    // Set the initial position as the last known valid position
+    let lastValidPosition = camera.getAttribute('position');
 
-  switch (event.key) {
-    case 'w':
-      position.z -= speed;
-      break;
-    case 's':
-      position.z += speed;
-      break;
-    case 'a':
-      position.x -= speed;
-      break;
-    case 'd':
-      position.x += speed;
-      break;
+    this.el.addEventListener('collide', (event) => {
+      // If collision occurs, reset the camera position to the last known valid position
+      camera.setAttribute('position', lastValidPosition);
+    });
+
+    // Listen for the camera's componentchanged event to update the lastValidPosition
+    camera.addEventListener('componentchanged', (event) => {
+      if (event.detail.name === 'position') {
+        lastValidPosition = camera.getAttribute('position');
+      }
+    });
   }
-
-  avatar.setAttribute('position', position.x + ' ' + position.y + ' ' + position.z);
 });

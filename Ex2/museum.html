@@ -4,31 +4,35 @@
     <title>Virtual Museum | A-Frame</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="objectClick.js"></script>
+    <script src="scriptest.js"></script>
   </head>
   <body>
     <a-scene>
       <!-- Your museum entities go here -->
-      <a-camera look-controls-enabled="true" wasd-controls position="3.7 0.4 1.5" near="0.1" clickable-listener raycaster="objects: [clickable]" collision-check>
+      <a-camera look-controls-enabled="true" position="3.7 0.4 1.5" near="0.1" clickable-listener raycaster="objects: [clickable]" kinematic-body universal-controls aabb-collider="objects: .collidable">
         <a-cursor color="#f49e42"></a-cursor>
       </a-camera>
-
+            
+      <!-- Assets -->
       <a-assets>
-        <!-- Preload Monalisa model -->
         <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
         <a-asset-item id="estrela" src="../assets/sceneEstrela.gltf"></a-asset-item>
       </a-assets>
+
+      <!-- Background music. -->
+      <a-sound id="backgroundMusic" src="../sound/scott-buckley-moonlight(chosic.com).mp3" autoplay="true" loop="true" volume="0.5"></a-sound>
             
       <!-- Floor -->
       <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#555" material="src: img/tiles.jpg"></a-plane>
 
       <!-- Walls -->
-      <a-box id="wall1" position="-2.5 1 0" width="0.5" height="2" depth="5" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
-      <a-box id="wall2" position="2.5 1 -0.825" width="0.5" height="2" depth="5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
-      <a-box id="wall3" position="0 1 2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
-      <a-box id="wall4" position="0 1 -2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
-      <a-box id="wall5" position="2.66 1.7 0.274" width="0.2" height="1" depth="7" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
-
+      <a-box id="wall1" class="collidable" position="-2.5 1 0" width="0.5" height="2" depth="5" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
+      <a-box id="wall2" class="collidable" position="2.5 1 -0.825" width="0.5" height="2" depth="5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall3" class="collidable" position="0 1 2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall4" class="collidable" position="0 1 -2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+      <a-box id="wall5" class="collidable" position="2.66 1.7 0.274" width="0.2" height="1" depth="7" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
       <!-- Museum Ceiling -->
       <a-plane position="0 2 0" rotation="90 0 0" width="5.2" height="5" color="#aaa" material="src: img/roofpainting.jpg"></a-plane>
 
@@ -42,7 +46,7 @@
       <a-box position="-1.5 0.75 -1.5" width="1" height="1.5" depth="0.5" color="#996633" clickable="info: Exhibit 1"></a-box>
 
       
-      <a-entity id="monalisa" position="1.453 0.378 -0.316" clickable="info: Monalisa">
+      <a-entity id="monalisa" position="1.453 0.378 -0.316" clickable="info: Monalisa; title: Monalisa; description: The Mona Lisa, an iconic masterpiece by Leonardo da Vinci, is a hallmark of Renaissance art. This enigmatic portrait showcases Lisa Gherardini, her elusive smile and gaze capturing the imagination of viewers. Crafted with da Vinci's meticulous technique, including the use of sfumato, the painting seamlessly blends light and shadow, contributing to its timeless allure. Housed in the Louvre Museum in Paris, the Mona Lisa stands as a testament to da Vinci's genius and a symbol of art's enduring ability to evoke mystery and fascination.; artist: Leonardo da Vinci; year: 1503-1506;">
         <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
       </a-entity>
 
@@ -64,13 +68,24 @@
       <a-box position="3.452 0.5 2.378" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
 
       <!-- Info cards -->
-      <a-plane id="infoCard" rotation="0 180 0" width="1" height="2" color="#333" opacity="0.8" transparent="true" visible="false">
-        <a-text id="infoText" position="-0.4 0.5 0" value="" color="#FFF" baseline="top" width="0.9"></a-text>
+      <a-plane id="infoCard" rotation="0 180 0" width="1.15" height="1.5" color="#333" opacity="0.9" transparent="true" visible="false">
+        <a-text id="infoTitle" position="-0.15 0.7 0" value="" color="#FFF" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt" scale="1.5 1.5 1.5"></a-text>
+        <a-text id="infoText" position="-0.53 0.55 0" value="" color="#FFF" baseline="top" width="0.9"></a-text>
+        <!-- Year and Artist -->
+        <a-text id="infoYearArtist" position="-0.51 -0.45 0" value="" color="#FFF" width="0.9" scale="1.2 1.2 1.2"></a-text>
 
         <!-- Close button -->
-        <a-plane id="closeButton" position="0 -0.25 0.01" width="0.25" height="0.1" color="#555" clickable></a-plane>
-        <a-text value="Close" color="#FFF" position="0 -0.25 0.02"></a-text>
+        <a-plane
+          id="closeButton"
+          position="0 -0.65 0.02"
+          width="0.15"
+          height="0.15"
+          color="#FFF"
+          material="src: close.png"
+          clickable
+        ></a-plane>
       </a-plane>
+
       
       <!-- Event listeners -->
       <a-entity id="event-listeners" scene-listener></a-entity>
