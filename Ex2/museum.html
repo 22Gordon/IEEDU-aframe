@@ -19,6 +19,8 @@
       <a-assets>
         <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
         <a-asset-item id="estrela" src="../assets/sceneEstrela.gltf"></a-asset-item>
+        <a-asset-item id="woman" src="../assets/sceneWoman.gltf"></a-asset-item>
+        <a-asset-item id="nami" src="../assets/sceneNami.gltf"></a-asset-item>
       </a-assets>
 
       <!-- Background music. -->
@@ -46,12 +48,20 @@
       <a-box position="-1.5 0.75 -1.5" width="1" height="1.5" depth="0.5" color="#996633" clickable="info: Exhibit 1"></a-box>
 
       
-      <a-entity id="monalisa" position="1.453 0.378 -0.316" clickable="info: Monalisa; title: Monalisa; description: The Mona Lisa, an iconic masterpiece by Leonardo da Vinci, is a hallmark of Renaissance art. This enigmatic portrait showcases Lisa Gherardini, her elusive smile and gaze capturing the imagination of viewers. Crafted with da Vinci's meticulous technique, including the use of sfumato, the painting seamlessly blends light and shadow, contributing to its timeless allure. Housed in the Louvre Museum in Paris, the Mona Lisa stands as a testament to da Vinci's genius and a symbol of art's enduring ability to evoke mystery and fascination.; artist: Leonardo da Vinci; year: 1503-1506;">
+      <a-entity id="monalisa" position="1.453 0.378 -0.316" clickable="info: Monalisa">
         <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
       </a-entity>
 
       <a-entity id="estrela" position="-0.45 0.750 1.5" rotation="0 90 0" clickable="info: The Starry Night">
         <a-entity gltf-model="#estrela" scale="0.65 0.65 0.65"></a-entity>
+      </a-entity>
+
+      <a-entity position="0.467 0.600 -1.283" rotation="0 90 0" clickable="info: The Scream">
+        <a-entity gltf-model="#woman" scale="0.75 0.75 0.75"></a-entity>
+      </a-entity>
+
+      <a-entity position="-1.370 0.902 0.456" rotation="0 180 0" clickable="info: Nami">
+        <a-entity gltf-model="#nami" scale="2.5 2.5 2.5"></a-entity>
       </a-entity>
 
       <!-- Entrance Ceiling -->
