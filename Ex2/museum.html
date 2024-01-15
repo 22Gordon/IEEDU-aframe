@@ -20,6 +20,13 @@
         <a-asset-item id="estrela" src="../assets/sceneEstrela.gltf"></a-asset-item>
         <a-asset-item id="woman" src="../assets/sceneWoman.gltf"></a-asset-item>
         <a-asset-item id="nami" src="../assets/sceneNami.gltf"></a-asset-item>
+        <a-asset-item id="statue" src="../assets/sceneStatue.gltf"></a-asset-item>
+        <a-asset-item id="pouso" src="../assets/scenePouso.gltf"></a-asset-item>
+        <a-asset-item id="lamp" src="../assets/sceneAntiqueLamp.gltf"></a-asset-item>
+        <a-asset-item id="plant" src="../assets/scenePlant.gltf"></a-asset-item>
+        <a-asset-item id="sofa" src="../assets/sceneSofa.gltf"></a-asset-item>
+        <a-asset-item id="teto" src="../assets/sceneTeto.gltf"></a-asset-item>
+        <a-asset-item id="quadro" src="../assets/sceneQuadro.gltf"></a-asset-item>
       </a-assets>
 
       <!-- Background music. -->
@@ -52,16 +59,52 @@
         <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
       </a-entity>
 
-      <a-entity id="estrela" position="-0.45 0.750 1.5" rotation="0 90 0" clickable="info: The Starry Night">
+      <a-entity id="estrela" position="-0.45 0.750 1.358" rotation="0 90 0" clickable="info: The Starry Night">
         <a-entity gltf-model="#estrela" scale="0.65 0.65 0.65"></a-entity>
       </a-entity>
 
-      <a-entity position="0.467 0.600 -1.283" rotation="0 90 0" clickable="info: The Scream">
+      <a-entity id="scream" position="0.467 0.600 -1.283" rotation="0 90 0" clickable="info: The Scream">
         <a-entity gltf-model="#woman" scale="0.75 0.75 0.75"></a-entity>
       </a-entity>
 
-      <a-entity position="-1.370 0.902 0.456" rotation="0 180 0" clickable="info: Nami">
+      <a-entity id="nami" position="-1.370 0.902 0.456" rotation="0 180 0" clickable="info: Nami">
         <a-entity gltf-model="#nami" scale="2.5 2.5 2.5"></a-entity>
+      </a-entity>
+
+      <a-entity id="busto" position="-1.860 0.402 -0.998" rotation="0 90 0" clickable="info: Bust of Napoleon Bonaparte">
+        <a-entity gltf-model="#statue" scale="1.5 1.5 1.5"></a-entity>
+      </a-entity>
+
+      <a-entity id="stand" position="-1.883 -0.031 -1.006">
+        <a-entity gltf-model="#pouso" scale="0.115 0.115 0.115"></a-entity>
+      </a-entity>
+
+      <a-entity id="candeeiro1" position="2.008 0 -0.226">
+        <a-entity gltf-model="#lamp" scale="0.007 0.007 0.007"></a-entity>
+      </a-entity>
+
+      <a-entity id="candeeiro2" position="-2.012 0 -2.054">
+        <a-entity gltf-model="#lamp" scale="0.007 0.007 0.007"></a-entity>
+      </a-entity>
+
+      <a-entity id="planta" position="-0.207 0 1.980">
+        <a-entity gltf-model="#plant" scale="0.002 0.002 0.002"></a-entity>
+      </a-entity>
+
+      <a-entity id="sofa1" position="0.611 0.236 1.834" rotation="0 90 0">
+        <a-entity gltf-model="#sofa" scale="0.5 0.5 0.5"></a-entity>
+      </a-entity>
+
+      <a-entity id="sofa2" position="1.248 0.236 1.834" rotation="0 90 0">
+        <a-entity gltf-model="#sofa" scale="0.5 0.5 0.5"></a-entity>
+      </a-entity>
+
+      <a-entity id="teto" position="0 2.336 0">
+        <a-entity gltf-model="#teto" scale="0.007 0.007 0.007"></a-entity>
+      </a-entity>
+
+      <a-entity id="quadro" position="3.621 0.610 0.707">
+        <a-entity gltf-model="#quadro" scale="0.150 0.150 0.150"></a-entity>
       </a-entity>
 
       <!-- Entrance Ceiling -->
