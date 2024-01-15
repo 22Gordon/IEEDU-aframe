@@ -6,6 +6,7 @@ AFRAME.registerComponent('clickable', {
     var infoTitle = document.getElementById('infoTitle');
     var infoYearArtist = document.getElementById('infoYearArtist');
     var closeButton = document.getElementById('closeButton');
+    var soundButton = document.getElementById('soundButton');
 
     console.log('Clickable component initialized for', el);
 
@@ -26,6 +27,19 @@ AFRAME.registerComponent('clickable', {
       if (el.id === 'door') {
         console.log('Door clicked!');
         window.location.href = 'quizz.html';
+        return;
+      }
+
+      // Check if the clicked element is the sound button
+      if (el.id === 'soundButton') {
+        console.log('Sound button clicked!');
+        // Stop the music or perform sound-related actions
+        var musicEntity = document.getElementById('backgroundMusic');
+        if (musicEntity.components.sound.isPlaying) {
+          musicEntity.components.sound.pauseSound();
+        } else {
+          musicEntity.components.sound.playSound();
+        }
         return;
       }
 

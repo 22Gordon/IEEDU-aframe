@@ -41,6 +41,7 @@
       <a-box id="wall3" class="collidable" position="0 1 2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
       <a-box id="wall4" class="collidable" position="0 1 -2.5" width="5" height="2" depth="0.5" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
       <a-box id="wall5" class="collidable" position="2.66 1.7 0.274" width="0.2" height="1" depth="7" material="src: img/bricks1.jpg" color="#999" static-body></a-box>
+
       <!-- Museum Ceiling -->
       <a-plane position="0 2 0" rotation="90 0 0" width="5.2" height="5" color="#aaa" material="src: img/roofpainting.jpg"></a-plane>
 
@@ -121,6 +122,29 @@
       <a-box position="2.785 0.5 0.680" width="0.25" height="1.5" depth="2" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
       <a-box position="3.452 0.5 2.378" width="2" height="1.5" depth="0.25" color="#999" material="src: img/wallpainting1.jpg" static-body></a-box>
 
+      <!-- Welcome text -->
+      <a-entity id="introduction" position="3.170 0.650 0.750">
+        <a-text
+          value="Welcome to the Virtual Art Museum!\n\nExplore the exhibits using WASD keys on your keyboard. Click on the exhibits to learn more about the artworks. When you're ready, head to the exit door for a quiz adventure!"
+          font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          width="1.5"
+          color="#000000"
+          opacity="0.8"
+          scale="0.65 0.65 0.65"
+        ></a-text>
+      </a-entity>
+
+      <!-- Sound button -->
+      <a-plane
+        id="soundButton"
+        position="4 0.400 0.750"
+        width="0.10"
+        height="0.10"
+        color="#777777"
+        material="src: img/sound.png"
+        clickable
+    ></a-plane>
+
       <!-- Info cards -->
       <a-plane id="infoCard" rotation="0 180 0" width="1.15" height="1.5" color="#333" opacity="0.9" transparent="true" visible="false">
         <a-text id="infoTitle" position="-0.15 0.7 0" value="" color="#FFF" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt" scale="1.5 1.5 1.5"></a-text>
@@ -135,7 +159,7 @@
           width="0.15"
           height="0.15"
           color="#FFF"
-          material="src: close.png"
+          material="src: img/close.png"
           clickable
         ></a-plane>
       </a-plane>
