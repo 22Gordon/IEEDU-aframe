@@ -38,7 +38,7 @@ const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
-    window.location.href = "https://www.google.com";
+    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScY9PjWvriXgTccKjS9kT2P028QWY3LzVtObLBMT4rxYAl1vw/viewform?usp=sf_link";
 }
 
 // if back_museum button clicked
