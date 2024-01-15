@@ -1,17 +1,10 @@
 AFRAME.registerComponent('clickable', {
-  schema: {
-    info: { default: '' },
-    title: { default: '' },
-    description: { default: '' },
-    artist: { default: '' },
-    year: { default: '' },
-  },
   init: function () {
     var el = this.el;
     var infoCard = document.getElementById('infoCard');
     var infoText = document.getElementById('infoText');
     var infoTitle = document.getElementById('infoTitle');
-    var infoYearArtist = document.getElementById('infoYearArtist'); // New line
+    var infoYearArtist = document.getElementById('infoYearArtist');
     var closeButton = document.getElementById('closeButton');
 
     console.log('Clickable component initialized for', el);
@@ -28,6 +21,14 @@ AFRAME.registerComponent('clickable', {
 
     el.addEventListener('click', function () {
       console.log('Clicked', el);
+
+      // Check if the clicked element is the door
+      if (el.id === 'door') {
+        console.log('Door clicked!');
+        window.location.href = 'quizz.html';
+        return;
+      }
+
       if (el.getAttribute('clickable').info) {
         console.log('Info attribute:', el.getAttribute('clickable').info);
 

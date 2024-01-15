@@ -6,7 +6,6 @@
     <script src="https://aframe.io/releases/1.0.4/aframe-extras.min.js"></script>
     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
     <script src="objectClick.js"></script>
-    <script src="scriptest.js"></script>
   </head>
   <body>
     <a-scene>
@@ -53,7 +52,8 @@
       <a-box position="1.5 1 -1.5" width="2" height="2" depth="2" color="#999" material="src: img/bricks1.jpg" static-body></a-box>
 
       <!-- Door -->
-      <a-plane id="door" position="-0.608 0.479 -2.238" width="0.5" material="src: img/Door_idle.webp" ></a-plane>
+      <a-plane id="door" position="-0.608 0.479 -2.238" width="0.5" material="src: img/Door_idle.webp" clickable></a-plane>
+
 
       <!-- Exhibits-->      
       <a-entity id="monalisa" position="1.453 0.378 -0.316" clickable="info: Monalisa; title: Monalisa; description: The Mona Lisa, an iconic masterpiece by Leonardo da Vinci, is a hallmark of Renaissance art. This enigmatic portrait showcases Lisa Gherardini, her elusive smile and gaze capturing the imagination of viewers. Crafted with da Vinci's meticulous technique, including the use of sfumato, the painting seamlessly blends light and shadow, contributing to its timeless allure. Housed in the Louvre Museum in Paris, the Mona Lisa stands as a testament to da Vinci's genius and a symbol of art's enduring ability to evoke mystery and fascination.; artist: Leonardo da Vinci; year: 1503-1506;">
