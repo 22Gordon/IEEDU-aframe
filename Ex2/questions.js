@@ -33,25 +33,14 @@ let questions = [
         ]
     },
     {
-        question: "What is the title of the sculpture depicting Napoleon Bonaparte by Auguste Rodin?",
-        image: "img/napoleao.jpg",
-        answer: "The Busto of Napoleon Bonaparte",
-        options: [
-            "The Thinker",
-            "The Busto of Napoleon Bonaparte",
-            "David",
-            "Venus de Milo"
+        "question": "Who is the prominent figure depicted in the bust sculpture?",
+        "image": "img/napoleao.jpg",
+        "answer": "Napoleon Bonaparte",
+        "options": [
+          "Napoleon Bonaparte",
+          "The Thinker",
+          "David",
+          "Venus de Milo"
         ]
-    },
-    {
-        question: "Who painted 'Woman with a Parasol'?",
-        image: "img/women.jpg",
-        answer: "Claude Monet",
-        options: [
-            "Pierre-Auguste Renoir",
-            "Edgar Degas",
-            "Claude Monet",
-            "Camille Pissarro"
-        ]
-    }
+      },      
 ];

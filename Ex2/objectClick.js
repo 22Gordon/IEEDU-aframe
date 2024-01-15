@@ -57,9 +57,18 @@ AFRAME.registerComponent('clickable', {
         // Adjust position based on the specific model
         if (el.id === 'estrela') {
           position.x += 0.3;
+          infoTitle.setAttribute('position', '-0.275 0.700 0');
         }
         if (el.id === 'monalisa') {
           position.y += 0.5;
+        }
+        if (el.id === 'nami') {
+          position.z -= 0.3;
+        }
+        if (el.id === 'busto') {
+          position.y += 0.5;
+          position.x += 0.5;
+          infoTitle.setAttribute('position', '-0.517 0.700 0');
         }
         infoCard.setAttribute('position', position);
 

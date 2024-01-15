@@ -10,7 +10,7 @@
   <body>
     <a-scene>
       <!-- Your museum entities go here -->
-      <a-camera look-controls-enabled="true" position="3.7 0.4 1.5" near="0.1" clickable-listener raycaster="objects: [clickable]" kinematic-body universal-controls aabb-collider="objects: .collidable">
+      <a-camera look-controls-enabled="true" position="3.7 0.4 1.9" near="0.1" clickable-listener raycaster="objects: [clickable]" kinematic-body universal-controls aabb-collider="objects: .collidable">
         <a-cursor color="#f49e42"></a-cursor>
       </a-camera>
             
@@ -18,7 +18,6 @@
       <a-assets>
         <a-asset-item id="monalisa" src="../assets/scene.gltf"></a-asset-item>
         <a-asset-item id="estrela" src="../assets/sceneEstrela.gltf"></a-asset-item>
-        <a-asset-item id="woman" src="../assets/sceneWoman.gltf"></a-asset-item>
         <a-asset-item id="nami" src="../assets/sceneNami.gltf"></a-asset-item>
         <a-asset-item id="statue" src="../assets/sceneStatue.gltf"></a-asset-item>
         <a-asset-item id="pouso" src="../assets/scenePouso.gltf"></a-asset-item>
@@ -59,22 +58,19 @@
         <a-entity gltf-model="#monalisa" scale="0.01 0.01 0.01" clickable></a-entity>
       </a-entity>
 
-      <a-entity id="estrela" position="-0.45 0.750 1.358" rotation="0 90 0" clickable="info: The Starry Night">
+      <a-entity id="estrela" position="-0.45 0.750 1.358" rotation="0 90 0" clickable="info: The Starry Night; title: The Starry Night; description: The Starry Night is a renowned masterpiece by Vincent van Gogh, painted in 1889. This iconic artwork depicts a tranquil night sky filled with swirling stars and a vivid crescent moon, set over a quaint village. Van Gogh's distinctive brushstrokes and vibrant colors contribute to the emotional intensity of the scene. The Starry Night is celebrated for its expressive power and is considered one of the most famous works in the history of Western art.; artist: Vincent van Gogh; year: 1889;">
         <a-entity gltf-model="#estrela" scale="0.65 0.65 0.65"></a-entity>
       </a-entity>
 
-      <a-entity id="scream" position="0.467 0.600 -1.283" rotation="0 90 0" clickable="info: The Scream">
-        <a-entity gltf-model="#woman" scale="0.75 0.75 0.75"></a-entity>
-      </a-entity>
-
-      <a-entity id="nami" position="-1.370 0.902 0.456" rotation="0 180 0" clickable="info: Nami">
+      <a-entity id="nami" position="-1.370 0.902 0.456" rotation="0 180 0" clickable="info: The Great Wave off Kanagawa; title: The Great Wave off Kanagawa; description: The Great Wave off Kanagawa is a woodblock print by the Japanese ukiyo-e artist Hokusai, created around 1831. This iconic artwork depicts a giant wave threatening boats near the Japanese coast, with Mount Fuji in the background. The Great Wave is a symbol of the power of nature and has become one of the most recognized works of Japanese art.; artist: Katsushika Hokusai; year: 1831;">
         <a-entity gltf-model="#nami" scale="2.5 2.5 2.5"></a-entity>
       </a-entity>
 
-      <a-entity id="busto" position="-1.860 0.402 -0.998" rotation="0 90 0" clickable="info: Bust of Napoleon Bonaparte">
+       <a-entity id="busto" position="-1.860 0.402 -0.998" rotation="0 90 0" clickable="info: Bust of Napoleon Bonaparte; title: Bust of Napoleon Bonaparte; description: The Bust of Napoleon Bonaparte is a sculptural representation of the French military and political leader, created by an unknown artist. This classical bust showcases Napoleon in a dignified pose, emphasizing his authority and stature. The artwork serves as a historical artifact, capturing the likeness of a significant figure in European history.; artist: Unknown; year: Unknown;">
         <a-entity gltf-model="#statue" scale="1.5 1.5 1.5"></a-entity>
       </a-entity>
-
+    
+      <!--Decorations--> 
       <a-entity id="stand" position="-1.883 -0.031 -1.006">
         <a-entity gltf-model="#pouso" scale="0.115 0.115 0.115"></a-entity>
       </a-entity>
