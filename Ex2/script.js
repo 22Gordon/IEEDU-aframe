@@ -33,13 +33,18 @@ let counter;
 let counterLine;
 let widthValue = 0;
 
-//const restart_quiz = result_box.querySelector(".buttons .restart");
+const backToMuseumBtn = result_box.querySelector(".buttons .back_museum");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
     window.location.href = "https://www.google.com";
 }
+
+// if back_museum button clicked
+backToMuseumBtn.onclick = () => {
+    window.location.href = "museum.html";
+};
 
 const next_btn = document.querySelector("footer .next_btn");
 const bottom_ques_counter = document.querySelector("footer .total_que");
