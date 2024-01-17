@@ -13,7 +13,7 @@ AFRAME.registerComponent('raycastable', {
         musicEntity.components.sound.playSound();
       }
     } else {
-      // Default behavior, e.g., navigate to "museum.html"
+      // navigate to museum
       window.location.href = "museum.html";
     }
   }

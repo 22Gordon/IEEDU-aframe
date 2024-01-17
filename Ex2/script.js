@@ -23,15 +23,11 @@ continue_btn.onclick = ()=>{
     quiz_box.classList.add("activeQuiz"); 
     que_count = 0;
     userScore = 0;
-    widthValue = 0;
     showQuestions(que_count);
 }
 
 let que_count = 0;
 let userScore = 0;
-let counter;
-let counterLine;
-let widthValue = 0;
 
 const backToMuseumBtn = result_box.querySelector(".buttons .back_museum");
 const quit_quiz = result_box.querySelector(".buttons .quit");
@@ -54,12 +50,8 @@ next_btn.onclick = ()=>{
     if(que_count < questions.length - 1){ //if question count is less than total question length
         que_count++; //increment the que_count value
         showQuestions(que_count); 
-        clearInterval(counter);
-        clearInterval(counterLine); 
         next_btn.classList.remove("show"); 
     }else{
-        clearInterval(counter); 
-        clearInterval(counterLine); 
         showResult();
     }
 }
@@ -92,14 +84,12 @@ function showQuestions(index) {
     }
 }
 
-// creating the new div tags for icons
+// creating the new div tags for icons (right or wrong answer)
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 //if user clicked on option
 function optionSelected(answer){
-    clearInterval(counter); 
-    clearInterval(counterLine); 
     let userAns = answer.textContent; //getting user selected option
     let correcAns = questions[que_count].answer; //getting correct answer from array
     const allOptions = option_list.children.length; 
@@ -108,18 +98,18 @@ function optionSelected(answer){
         userScore += 1; 
         answer.classList.add("correct"); 
         answer.insertAdjacentHTML("beforeend", tickIconTag); 
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
+        //console.log("Correct Answer");
+        //console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); 
         answer.insertAdjacentHTML("beforeend", crossIconTag); 
-        console.log("Wrong Answer");
+        //console.log("Wrong Answer");
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){  
                 option_list.children[i].setAttribute("class", "option correct"); 
                 option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
-                console.log("Auto selected correct answer.");
+                //console.log("Auto selected correct answer.");
             }
         }
     }

@@ -33,7 +33,7 @@ AFRAME.registerComponent('clickable', {
       // Check if the clicked element is the sound button
       if (el.id === 'soundButton') {
         console.log('Sound button clicked!');
-        // Stop the music or perform sound-related actions
+        // Stop the music 
         var musicEntity = document.getElementById('backgroundMusic');
         if (musicEntity.components.sound.isPlaying) {
           musicEntity.components.sound.pauseSound();
@@ -46,7 +46,7 @@ AFRAME.registerComponent('clickable', {
       if (el.getAttribute('clickable').info) {
         console.log('Info attribute:', el.getAttribute('clickable').info);
 
-        // Extract details from the schema
+        // Extract details 
         var title = el.getAttribute('clickable').title || 'Untitled';
         var description = el.getAttribute('clickable').description || 'No description available';
         var artist = el.getAttribute('clickable').artist || 'Unknown artist';
